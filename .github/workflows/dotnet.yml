@@ -11,9 +11,8 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
+    
     steps:
     - uses: actions/checkout@v3
     - name: Setup .NET
@@ -26,6 +25,14 @@ jobs:
     - name: Build
       working-directory: backend/comute/comute
       run: dotnet build --no-restore
+   
     - name: Test
       working-directory: backend/comute/comute
       run: dotnet test --no-build --verbosity normal
+      
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+     - name: Publish
+       working-directory: backend/comute/comute
+       run: dotnet publish -c Release -o backend/publish
