@@ -20,8 +20,10 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 6.0.x
-        path: /backend/comute/comute/
     - name: Restore dependencies
+      uses: /backend/comute/comute
+      with:
+        path: /backend/comute/comute/
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
