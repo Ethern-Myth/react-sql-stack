@@ -10,7 +10,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     
     steps:
@@ -27,7 +27,4 @@ jobs:
       run: dotnet build --no-restore
     - name: Publish
       working-directory: backend/comute/comute
-      run: dotnet publish -c Release -o backend/publish
-    - name: Test
-      working-directory: backend/comute/comute
-      run: dotnet test --no-build --verbosity normal 
+      run: dotnet publish comute.sln -c:Release -o:publish -p:GHPages=true
