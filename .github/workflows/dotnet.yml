@@ -27,4 +27,4 @@ jobs:
       run: dotnet build --no-restore
     - name: Publish
       working-directory: backend/comute/comute
-      run: dotnet publish
+      run: dotnet publish -c Release
