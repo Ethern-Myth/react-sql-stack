@@ -29,3 +29,6 @@ jobs:
     - name: Test
       working-directory: backend/comute/comute
       run: dotnet test --no-build --verbosity normal
+    - name: Run
+      working-directory: backend/comute/comute 
+      run: dotnet run
