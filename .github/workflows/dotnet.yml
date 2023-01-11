@@ -25,14 +25,9 @@ jobs:
     - name: Build
       working-directory: backend/comute/comute
       run: dotnet build --no-restore
-   
+    - name: Publish
+      working-directory: backend/comute/comute
+      run: dotnet publish -c Release -o backend/publish
     - name: Test
       working-directory: backend/comute/comute
-      run: dotnet test --no-build --verbosity normal
-      
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-     - name: Publish
-       working-directory: backend/comute/comute
-       run: dotnet publish -c Release -o backend/publish
+      run: dotnet test --no-build --verbosity normal 
