@@ -13,6 +13,8 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    env: 
+      path: backend/comute/comute
 
     steps:
     - uses: actions/checkout@v3
@@ -21,9 +23,6 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Restore dependencies
-      uses: /backend/comute/comute
-      with:
-        path: /backend/comute/comute/
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
